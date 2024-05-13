@@ -3,7 +3,7 @@ FROM alpine:3.18
 
 # Install necessary dependencies
 RUN apk update && \
-    apk add --no-cache wget bash ca-certificates-bundle libgcc libssl3 libstdc++ zlib && \
+    apk add --no-cache wget bash ca-certificates-bundle libgcc libssl3 libstdc++ zlib libicu && \
     rm -rf /var/cache/apk/*
 
 # Download and install .NET Core SDK
