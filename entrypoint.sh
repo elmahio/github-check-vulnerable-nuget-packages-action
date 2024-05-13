@@ -1,8 +1,4 @@
 #!/bin/sh -l
-
-wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh
-chmod +x ./dotnet-install.sh
-
 set -e # This will cause the script to exit on the first error
 OUTPUT=$(dotnet list package --vulnerable)
 echo "$OUTPUT"
