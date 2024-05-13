@@ -15,9 +15,6 @@ RUN wget -q https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh && \
 # Add .NET to the PATH environment variable
 ENV PATH="$PATH:/usr/share/dotnet"
 
-# Confirm the installation
-RUN dotnet --version
-
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
 
