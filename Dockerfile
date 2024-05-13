@@ -1,6 +1,11 @@
 # Container image that runs your code
 FROM alpine:3.10
 
+# Install prerequisites
+RUN apt-get update && \
+    apt-get install -y wget apt-transport-https && \
+    rm -rf /var/lib/apt/lists/*
+
 # Install the latest stable version of .NET Core SDK
 RUN wget -q https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh && \
     chmod +x dotnet-install.sh && \
