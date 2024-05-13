@@ -1,0 +1,35 @@
+name: 'elmah.io Create Deployment Action'
+author: 'elmah.io'
+description: 'GitHub Action to create a new deployment on elmah.io'
+branding:
+  icon: 'upload-cloud'
+  color: 'green'
+inputs:
+  apiKey:
+    description: 'An API key with permission to create deployments.'
+    required: true
+  version:
+    description: 'The version number of this deployment. The value of version can be a SemVer compliant string or any other syntax that you are using as your version numbering scheme.'
+    required: true
+  description:
+    description: 'Optional description of this deployment. Can be markdown or clear text.'
+    required: false
+  userName:
+    description: 'The name of the person responsible for creating this deployment. This can be the name taken from your deployment server.'
+    required: false
+  userEmail:
+    description: 'The email of the person responsible for creating this deployment. This can be the email taken from your deployment server.'
+    required: false
+  logId:
+    description: 'As default, deployments are attached all logs of the organization. If you want a deployment to attach to a single log only, set this to the ID of that log.'
+    required: false
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.apiKey }}
+    - ${{ inputs.version }}
+    - ${{ inputs.description }}
+    - ${{ inputs.userName }}
+    - ${{ inputs.userEmail }}
+    - ${{ inputs.logId }}
