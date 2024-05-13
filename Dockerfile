@@ -3,7 +3,7 @@ FROM alpine:3.10
 
 # Install necessary dependencies
 RUN apk update && \
-    apk add --no-cache wget && \
+    apk add --no-cache wget bash && \
     rm -rf /var/cache/apk/*
 
 # Download and install .NET Core SDK
