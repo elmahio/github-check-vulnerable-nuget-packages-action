@@ -1,9 +1,9 @@
 # Container image that runs your code
-FROM alpine:3.10
+FROM alpine:3.18
 
 # Install necessary dependencies
 RUN apk update && \
-    apk add --no-cache wget bash libstdc++6 && \
+    apk add --no-cache wget bash ca-certificates-bundle libgcc libssl3 libstdc++ zlib && \
     rm -rf /var/cache/apk/*
 
 # Download and install .NET Core SDK
