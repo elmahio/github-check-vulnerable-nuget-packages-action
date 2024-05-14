@@ -1,6 +1,6 @@
 # Check vulnerable NuGet packages GitHub Action
 
-This action will check for vulnerable NuGet packages in the entire repository. If vulnerable packages are found, they will be listed and the build will fail.
+This action will check for vulnerable NuGet packages in one or more projects/solutions. If vulnerable packages are found, they will be listed and the build will fail.
 
 ![Screenshot](screenshot.png)
 
