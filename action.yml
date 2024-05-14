@@ -4,6 +4,12 @@ description: 'GitHub Action to check for vulnerable NuGet packages.'
 branding:
   icon: 'check-circle'
   color: 'green'
+inputs:
+  project:
+    description: 'The project or solution file to operate on. If a file is not specified, the command will search current directory for one.'
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  args:
+    - ${{ inputs.project }}
