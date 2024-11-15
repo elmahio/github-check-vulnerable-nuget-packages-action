@@ -1,6 +1,10 @@
 #!/bin/bash
 set -e # Exit on the first error
 
+# Enable logging
+LOG_FILE=/tmp/action-log.txt
+exec > >(tee -a "$LOG_FILE") 2>&1
+
 # Ensure the dotnet command is available in PATH
 export PATH="$PATH:/usr/share/dotnet"
 
