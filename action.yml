@@ -5,11 +5,13 @@ branding:
   icon: 'check-circle'
   color: 'green'
 inputs:
-  project:
-    description: 'The project or solution file to operate on. If a file is not specified, the command will search current directory for one.'
+  projects:
+    description: |
+      A newline-separated list of project or solution files to operate on.
+      If not specified, the command will search the current directory for one.
     required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.project }}
+    - ${{ inputs.projects }}

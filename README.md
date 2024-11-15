@@ -8,9 +8,9 @@ The code is based on [this excellent blog post by Steven Giesel](https://steven-
 
 ## Inputs
 
-### `project`
+### `projects`
 
-The project or solution file to operate on. If a file is not specified, the command will search current directory for one.
+A newline-separated list of project or solution files to operate on. If not specified, the command will search the current directory for one.
 
 ## Example usage
 
@@ -18,14 +18,15 @@ Check all projects and solutions for vulnerable NuGet packages:
 
 ```yml
 - name: Check vulnerable NuGet packages
-  uses: elmahio/github-check-vulnerable-nuget-packages-action@v1
+  uses: elmahio/github-check-vulnerable-nuget-packages-action@v2
 ```
 
 Check a specific project for vulnerable NuGet packages:
 
 ```yml
 - name: Check vulnerable NuGet packages
-  uses: elmahio/github-check-vulnerable-nuget-packages-action@v1
+  uses: elmahio/github-check-vulnerable-nuget-packages-action@v2
   with:
-    project: 'src/HelloWorld.csproj'
+    projects: |
+      'src/HelloWorld.csproj'
 ```
