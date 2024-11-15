@@ -28,6 +28,8 @@ vulnerabilities_found=0
 
 # Process each project
 for project in "${project_files[@]}"; do
+  # Remove any surrounding quotes from the project path
+  project=$(echo "$project" | tr -d "'")
   echo "Checking vulnerabilities for: $project"
   
   # Run the vulnerability check
@@ -45,6 +47,7 @@ for project in "${project_files[@]}"; do
     fi
   fi
 done
+
 
 # Exit with an error if any vulnerabilities were found
 if [[ $vulnerabilities_found -eq 1 ]]; then
