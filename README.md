@@ -28,5 +28,5 @@ Check a specific project for vulnerable NuGet packages:
   uses: elmahio/github-check-vulnerable-nuget-packages-action@v2
   with:
     projects: |
-      'src/HelloWorld.csproj'
+      src/HelloWorld.csproj
 ```

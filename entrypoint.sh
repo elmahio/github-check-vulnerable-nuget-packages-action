@@ -20,8 +20,17 @@ fi
 # Split the projects into an array using a while loop for compatibility
 project_files=()
 while IFS= read -r line; do
-  project_files+=("$line")
+  # Skip empty lines
+  if [[ -n "$line" ]]; then
+    project_files+=("$line")
+  fi
 done <<< "$projects"
+
+# Debugging: Print resolved project paths
+echo "Resolved project paths:"
+for project in "${project_files[@]}"; do
+  echo "$project"
+done
 
 # Initialize a flag to track if vulnerabilities are found
 vulnerabilities_found=0
