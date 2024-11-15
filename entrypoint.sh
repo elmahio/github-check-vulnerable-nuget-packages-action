@@ -17,8 +17,11 @@ if [[ -z "$projects" ]]; then
   projects=$(find . -name '*.csproj' -o -name '*.sln')
 fi
 
-# Split the projects into an array
-IFS=$'\n' read -rd '' -a project_files <<< "$projects"
+# Split the projects into an array using a while loop for compatibility
+project_files=()
+while IFS= read -r line; do
+  project_files+=("$line")
+done <<< "$projects"
 
 # Initialize a flag to track if vulnerabilities are found
 vulnerabilities_found=0
