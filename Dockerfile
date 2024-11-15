@@ -9,7 +9,7 @@ RUN apk update && \
 # Download and install .NET Core SDK
 RUN wget -q https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh && \
     chmod +x dotnet-install.sh && \
-    ./dotnet-install.sh --version latest --install-dir /usr/share/dotnet && \
+    ./dotnet-install.sh --channel 9.0 --install-dir /usr/share/dotnet && \
     rm dotnet-install.sh
 
 # Add .NET to the PATH environment variable
